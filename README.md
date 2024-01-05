@@ -1,10 +1,11 @@
 # DatapackModinator
 *(Doofenshmirtz voice) Behold, the DatapackModinator!*
-~~maybe you can call it DPM for short.~~
 
 A small tool to package Minecraft datapacks and/or resource packs into a single mod file that works on both Fabric and Forge.
 
 Simply place your data and assets folders into the same directory as the python file and the `settings.toml` file, then run the python file.
+
+If you don't happen to have Python installed on your computer, you can head to the [Releases](https://github.com/T0RNATO/datapackmodinator/releases/latest) tab and get the exe that is functionally identical. (Tested only on Windows.)
 
 ## Settings
 This is an example `settings.toml` file. All mod info keys are required and should be changed. Paths are optional in case you want to have the program copy the datapack and/or resource pack from elsewhere.
