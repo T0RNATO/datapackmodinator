@@ -1,2 +1,6 @@
 .idea/
 .gitignore
+build/
+dist/
+*.spec
+*.jar
