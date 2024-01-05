@@ -1,0 +1,23 @@
+[mod_info]
+# The internal mod id, used for referencing the mod in code. a-z, 0-9, and _ only.
+id = "mymod"
+# The name of the mod as it will appear in the mod manager.
+display_name = "My Mod"
+# The version of the mod. This is used for updating mods and should probably use semver.
+version = "1.0.0"
+# A list of authors/contributors.
+authors = ["My Name"]
+# A short description of the mod.
+description = "My Mod Description"
+# The license of the mod. If unsure, use MIT or The Unlicense.
+license = "MIT"
+# Forge loader version, because forge can't just support MC version numbers.
+# For reference, 40 is 1.18, 43 is 1.19.2, and 47 is 1.20.1
+# I will assume it supports versions newer than this as well.
+forge_version = 47
+
+# Paths are from the directory from which this is run. These keys are optional.
+[paths]
+assets = "assets/"
+data = "data/"
+icon = "icon.png"
