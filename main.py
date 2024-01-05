@@ -13,10 +13,13 @@ def format(text, *codes):
     return out + text + "\033[0m"
 
 def add_folder_to_zip(zipf, folder_path, arcname):
+    count = 0
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             file_path = os.path.join(root, file)
             zipf.write(file_path, os.path.join(arcname, os.path.relpath(file_path, folder_path)))
+            count += 1
+    return count
 
 expected_keys = ["id", "version", "display_name", "description", "authors", "license", "forge_version"]
 
@@ -69,16 +72,14 @@ with ZipFile("mod.jar", "w") as z:
         print(format("Icon not found at provided path.", 93))
 
     try:
-        add_folder_to_zip(z, paths["data"], "data")
-        print("Added datapack files")
+        print(f"Added {add_folder_to_zip(z, paths['data'], 'data')} datapack files")
     except KeyError:
         pass
     except FileNotFoundError:
         print(format("Datapack files not found at provided path.", 93))
 
     try:
-        add_folder_to_zip(z, paths["assets"], "assets")
-        print("Added resource pack files")
+        print(f"Added {add_folder_to_zip(z, paths['assets'], 'assets')} resource pack files")
     except KeyError:
         pass
     except FileNotFoundError:
