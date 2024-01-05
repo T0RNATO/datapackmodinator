@@ -1,6 +1,6 @@
 import tomllib
 import json
-import os.path
+import os
 from zipfile import ZipFile
 
 with open("settings.toml", "rb") as f:
@@ -11,6 +11,12 @@ def format(text, *codes):
     for code in codes:
         out += f"\033[{code}m"
     return out + text + "\033[0m"
+
+def add_folder_to_zip(zipf, folder_path, arcname):
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            file_path = os.path.join(root, file)
+            zipf.write(file_path, os.path.join(arcname, os.path.relpath(file_path, folder_path)))
 
 expected_keys = ["id", "version", "display_name", "description", "authors", "license", "forge_version"]
 
@@ -63,7 +69,7 @@ with ZipFile("mod.jar", "w") as z:
         print(format("Icon not found at provided path.", 93))
 
     try:
-        z.write(paths["data"], "data")
+        add_folder_to_zip(z, paths["data"], "data")
         print("Added datapack files")
     except KeyError:
         pass
@@ -71,7 +77,7 @@ with ZipFile("mod.jar", "w") as z:
         print(format("Datapack files not found at provided path.", 93))
 
     try:
-        z.write(paths["assets"], "assets")
+        add_folder_to_zip(z, paths["assets"], "assets")
         print("Added resource pack files")
     except KeyError:
         pass

@@ -7,6 +7,8 @@ Simply place your data and assets folders into the same directory as the python 
 
 If you don't happen to have Python installed on your computer, you can head to the [Releases](https://github.com/T0RNATO/datapackmodinator/releases/latest) tab and get the exe that is functionally identical. (Tested only on Windows.)
 
+Note: exe is currently broken, please give me 12 business hours :P
+
 ## Settings
 This is an example `settings.toml` file. All mod info keys are required and should be changed. Paths are optional in case you want to have the program copy the datapack and/or resource pack from elsewhere.
 ```toml
