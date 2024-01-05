@@ -48,7 +48,7 @@ with ZipFile("mod.jar", "w") as z:
         [[mods]]
         modId="{info['id']}"
         version="{info['version']}"
-        displayName="{info['display_name']}
+        displayName="{info['display_name']}"
         authors="{', '.join(info['authors'])}"
         description="{info['description']}"
         {'logoFile="icon.png"' if icon else ''}
@@ -79,4 +79,7 @@ with ZipFile("mod.jar", "w") as z:
         print(format("Resource pack files not found at provided path.", 93))
 
     print(format("Done! Mod created at mod.jar", 92))
-    input("Press enter to exit...")
+
+z.close()
+input("Press enter to exit...")
+
